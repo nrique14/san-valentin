@@ -140,18 +140,18 @@ input,select,textarea{
 <script>
 
 // ================= CONFIG =================
-let modoPrueba=false;
-let diaSimulado=1; // cambia 1 o 2
+// let modoPrueba=true;
+//let diaSimulado=2; // cambia 1 o 2
 
 const digitosCorrectos=["0","9","1","2"]; // 4 dígitos ahora
 
 // =============== SISTEMA DÍAS ============
-function calcularDiaReal(){
- let inicio=new Date("2026-02-13");
- let hoy=new Date();
- return Math.floor((hoy-inicio)/(1000*60*60*24))+1;
-}
-let diaActual=modoPrueba?diaSimulado:calcularDiaReal();
+// function calcularDiaReal(){
+//  let inicio=new Date("2026-02-13");
+//  let hoy=new Date();
+//  return Math.floor((hoy-inicio)/(1000*60*60*24))+1;
+// }
+// let diaActual=modoPrueba?diaSimulado:calcularDiaReal();
 
 // =============== STORAGE ==================
 function guardarDigito(d){
@@ -279,6 +279,7 @@ if(aciertos===10){
 alert("🎵 Día 1 superado 💖\nTus códigos son: 0 y 9");
 guardarDigito("0");
 guardarDigito("9");
+dia2();
 }else{
 alert("Fallaste en: " + errores.join(", "));
 }
@@ -574,8 +575,17 @@ alert("😅 Esa opción no estaba programada... vuelve a intentarlo 💕");
 }
 
 // =============== INICIO ====================
-if(diaActual==1) dia1();
-if(diaActual==2) dia2();
+// if(diaActual==1) dia1();
+// if(diaActual==2) dia2();
+
+// ================= CONTROL MANUAL =================
+let activarJuego = true; // true = empieza en Día 1, false = carta directa
+
+if(activarJuego){
+    dia1();
+}else{
+    mostrarExperiencia();
+}
 
 </script>
 </body>
